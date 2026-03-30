@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaEye } from 'react-icons/fa';
 
 export default function Projects() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -91,6 +93,16 @@ export default function Projects() {
                   </div>
                   
                   <div className="flex gap-4">
+                    {project.id === 2 && (
+                      <button
+                        onClick={() => navigate('/dashboard')}
+                        data-testid={`project-demo-${project.id}`}
+                        className="flex items-center gap-2 px-4 py-2 bg-[#4D9FFF] text-white text-sm font-medium rounded-md hover:bg-[#7CB9FF] transition-colors"
+                      >
+                        <FaEye size={16} />
+                        View Live Demo
+                      </button>
+                    )}
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}
