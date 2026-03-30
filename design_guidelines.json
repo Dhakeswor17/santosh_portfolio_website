@@ -1,0 +1,88 @@
+{
+  "theme": "dark",
+  "archetype": "5 (Jewel & Luxury) with Web3/Tech Editorial Twist",
+  "typography": {
+    "headings": {
+      "font_family": "Outfit, sans-serif",
+      "weights": ["light", "regular", "bold"],
+      "usage": "Use Outfit for all headings. Tight tracking (tracking-tight) for H1 and H2. H1 max text-5xl sm:text-6xl."
+    },
+    "body": {
+      "font_family": "Manrope, sans-serif",
+      "weights": ["regular", "medium"],
+      "usage": "Use Manrope for body text. leading-relaxed for paragraphs."
+    },
+    "labels": {
+      "style": "uppercase, tracking-[0.2em], text-xs font-semibold text-zinc-400"
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#0A0A0A",
+      "secondary": "#121215"
+    },
+    "surface": {
+      "glass": "bg-white/5 backdrop-blur-xl border border-white/10",
+      "solid": "bg-[#18181B] border border-white/5"
+    },
+    "text": {
+      "primary": "#F4F4F5",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "accent": {
+      "primary": "#4D9FFF",
+      "hover": "#7CB9FF",
+      "glow": "rgba(77, 159, 255, 0.15)"
+    }
+  },
+  "layout_and_spacing": {
+    "philosophy": "Generous spacing. Asymmetric grids for projects. The 'Bento' Grid Protocol for skills and about section.",
+    "spacing_scale": "Use p-8, p-12, p-20, p-32. Containers with borders must have internal padding (p-8 or p-12).",
+    "hero_section": "Full screen (min-h-screen). Absolute positioned 3D canvas or background image behind content. Content aligned left or center-left, optical alignment. Max overlay bg-black/40 if using image fallback.",
+    "projects_grid": "Mode A: The Tetris Grid. Mix column spans (col-span-full, col-span-4) with gap-8 or gap-12. Do not just use a standard 3-column equal grid."
+  },
+  "components": {
+    "navigation": "Sticky Header with Crystal Glassmorphism (bg-black/60 backdrop-blur-xl border-b border-white/10). Explicit navigation links on desktop, no hamburger menu on desktop. Contains Logo, Links, CTA.",
+    "buttons": "Flat rectangular or slightly rounded (rounded-md). bg-white text-black for primary CTA. Hover: scale slightly, bg-zinc-200. Secondary: border border-white/20 hover:bg-white/5.",
+    "cards": "Cardless or Glassmorphic surfaces. Never use pure #000000 cards. Use subtle 1px border-white/10 to ground elements.",
+    "forms": "Shadcn UI completely restyled. bg-white/5 borders, focus:ring-1 focus:ring-accent-primary.",
+    "3d_elements": "Use React Three Fiber (R3F) + Drei for abstract floating geometries (spheres, cubes, toruses, servers) with glass material in the Hero section. Use fallback hero image if R3F fails."
+  },
+  "motion_and_interactions": {
+    "scroll": "Smooth scrolling using Framer Motion or standard CSS smooth scroll. Staggered fade-up entrances for list items and grids.",
+    "hover": "Subtle translate-y (-translate-y-1) and box-shadow glows on cards. Buttons must change text color if background changes."
+  },
+  "media_urls": {
+    "hero_fallback_bg": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/6873ee99-1441-48fe-ae88-ccaafe02c125/images/4cbd1ec2b1e37b81a3cd5fa2a21b20057246ac8bdb207e6fc47ac95ccdb7bc12.png",
+      "description": "Abstract 3D geometric shapes with subtle blue glow. Use as background in Hero section if R3F is not implemented or as a fallback."
+    },
+    "projects": [
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/6873ee99-1441-48fe-ae88-ccaafe02c125/images/4c21638db175ad02b5fc66c46c68486633cec27c3788c915b792294b67300223.png",
+        "title": "Fintech Dashboard UI",
+        "description": "Dark mode modern web application dashboard. Use in the Projects showcase."
+      },
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/6873ee99-1441-48fe-ae88-ccaafe02c125/images/f2c56b726d38cdfccb6bbb9eba396241d5d178d36b78b0b7f365892d672ba159.png",
+        "title": "Data Network Visualizer",
+        "description": "Abstract 3D data network nodes. Use in the Projects showcase."
+      },
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/6873ee99-1441-48fe-ae88-ccaafe02c125/images/c1750c90b3deb7c014fce746335daa20e6f30d44da47ca8af0b4bcdd592a56dc.png",
+        "title": "Mobile Banking App",
+        "description": "Clean minimal mobile app screens in a dark void. Use in the Projects showcase."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the dark theme palette. Do not use pure white backgrounds anywhere except for high-contrast primary buttons.",
+    "Implement React Three Fiber (R3F) + Drei in the Hero section for 3D tech-related models (e.g., floating network nodes, servers, or abstract geometric glass primitives).",
+    "Use framer-motion for smooth staggered reveal animations on scroll.",
+    "For the Projects section, use an asymmetrical Grid (Tetris Grid) with varying col-spans. Do NOT use a boring 3-column equal grid.",
+    "For the Google and Microsoft experience logos, use react-icons (e.g., FaGoogle, FaMicrosoft) or lucide-react instead of raster images to maintain the clean dark mode aesthetic.",
+    "Add 'data-testid' attributes to all interactive elements.",
+    "Prioritize optical alignment over strict geometric alignment for all text blocks."
+  ]
+}
