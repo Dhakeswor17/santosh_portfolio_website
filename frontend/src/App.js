@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
+import BarbershopFinder from './components/BarbershopFinder';
 import './App.css';
 
 function HomePage() {
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/barbershop-finder" element={<BarbershopFinder />} />
       </Routes>
     </div>
   );

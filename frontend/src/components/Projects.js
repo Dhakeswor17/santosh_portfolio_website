@@ -93,9 +93,9 @@ export default function Projects() {
                   </div>
                   
                   <div className="flex gap-4">
-                    {project.id === 2 && (
+                    {(project.id === 2 || project.id === 8) && (
                       <button
-                        onClick={() => navigate('/dashboard')}
+                        onClick={() => navigate(project.id === 2 ? '/dashboard' : '/barbershop-finder')}
                         data-testid={`project-demo-${project.id}`}
                         className="flex items-center gap-2 px-4 py-2 bg-[#4D9FFF] text-white text-sm font-medium rounded-md hover:bg-[#7CB9FF] transition-colors"
                       >
