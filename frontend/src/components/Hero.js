@@ -20,7 +20,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <p className="uppercase tracking-[0.2em] text-xs font-semibold text-zinc-400 mb-6">
-            Network Engineer · IT Student · Builder
+            Network Engineer · Software Developer · Full Stack Developer · IT Student · Builder
           </p>
           
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] tracking-tight mb-6">

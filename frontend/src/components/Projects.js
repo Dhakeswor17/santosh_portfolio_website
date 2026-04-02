@@ -93,9 +93,17 @@ export default function Projects() {
                   </div>
                   
                   <div className="flex gap-4">
-                    {(project.id === 2 || project.id === 8) && (
+                    {(project.id === 2 || project.id === 8 || project.liveUrl) && (
                       <button
-                        onClick={() => navigate(project.id === 2 ? '/dashboard' : '/barbershop-finder')}
+                        onClick={() => {
+                          if (project.id === 2) {
+                            navigate('/dashboard');
+                          } else if (project.id === 8) {
+                            navigate('/barbershop-finder');
+                          } else if (project.liveUrl) {
+                            window.open(project.liveUrl, '_blank');
+                          }
+                        }}
                         data-testid={`project-demo-${project.id}`}
                         className="flex items-center gap-2 px-4 py-2 bg-[#4D9FFF] text-white text-sm font-medium rounded-md hover:bg-[#7CB9FF] transition-colors"
                       >
