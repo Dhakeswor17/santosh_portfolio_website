@@ -39,7 +39,14 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
-    db.Database.Migrate();
+    try
+    {
+        db.Database.EnsureCreated();
+    }
+    catch
+    {
+        // Database already exists, skip
+    }
 }
 
 if (app.Environment.IsDevelopment())
