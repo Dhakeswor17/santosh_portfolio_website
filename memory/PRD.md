@@ -52,6 +52,7 @@ Design a modern, clean, and visually engaging personal portfolio 3D full stack w
 - EF Core auto-migrations intentionally disabled in Program.cs
 - Dashboard metrics and Barbershop data are MOCKED (in-memory/random)
 - Pod resets may wipe dotnet/PostgreSQL - need reinstall
+- All Emergent branding removed: index.html cleaned, visual-edits disabled in craco.config.js, PostHog tracking removed
 
 ## Backlog
 - P1: Help user with final GitHub export if needed
