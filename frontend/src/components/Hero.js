@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Scene3D from './Scene3D';
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -10,8 +11,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" data-testid="hero-section" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(to bottom, #0A0A0A, #121215)', backgroundImage: 'url(https://static.prod-images.emergentagent.com/jobs/6873ee99-1441-48fe-ae88-ccaafe02c125/images/4cbd1ec2b1e37b81a3cd5fa2a21b20057246ac8bdb207e6fc47ac95ccdb7bc12.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="absolute inset-0 bg-black/60" />
+    <section id="hero" data-testid="hero-section" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #0d1117 50%, #0A0A0A 100%)' }}>
+      <Scene3D />
+
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60 z-[1]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
         <motion.div
@@ -50,7 +53,7 @@ export default function Hero() {
         </motion.div>
       </div>
       
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
         <div className="w-6 h-10 border-2 border-white/20 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-2 bg-white/40 rounded-full" />
         </div>
