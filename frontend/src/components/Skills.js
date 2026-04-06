@@ -11,87 +11,85 @@ export default function Skills() {
     const fetchSkills = async () => {
       try {
         const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
         const [skillsRes, categoriesRes] = await Promise.all([
           axios.get(`${backendUrl}/api/skills`),
           axios.get(`${backendUrl}/api/skills/categories`)
         ]);
-        setSkills(skillsRes.data);
-        setCategories(categoriesRes.data);
+
+        
+        const skillsData = Array.isArray(skillsRes.data)
+          ? skillsRes.data
+          : skillsRes.data.skills || [];
+
+        const categoriesData = Array.isArray(categoriesRes.data)
+          ? categoriesRes.data
+          : categoriesRes.data.categories || [];
+
+        setSkills(skillsData);
+        setCategories(categoriesData);
       } catch (error) {
         console.error('Error fetching skills:', error);
+        setSkills([]);
+        setCategories([]);
       } finally {
         setLoading(false);
       }
     };
+
     fetchSkills();
   }, []);
 
   if (loading) {
     return (
-      <section id="skills" className="py-32 px-6 lg:px-12" style={{ backgroundColor: '#0A0A0A' }}>
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-[#A1A1AA]">Loading skills...</p>
-        </div>
+      <section className="py-32 text-center" style={{ backgroundColor: '#0A0A0A' }}>
+        <p className="text-[#A1A1AA]">Loading skills...</p>
       </section>
     );
   }
 
-  const skillsByCategory = categories.reduce((acc, category) => {
-    acc[category] = skills.filter(skill => skill.category === category);
+  
+  const safeCategories = Array.isArray(categories) ? categories : [];
+  const safeSkills = Array.isArray(skills) ? skills : [];
+
+  const skillsByCategory = safeCategories.reduce((acc, category) => {
+    acc[category] = safeSkills.filter(skill => skill.category === category);
     return acc;
   }, {});
 
   return (
-    <section id="skills" data-testid="skills-section" className="py-32 px-6 lg:px-12" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="py-32 px-6 lg:px-12" style={{ backgroundColor: '#0A0A0A' }}>
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <p className="uppercase tracking-[0.2em] text-xs font-semibold text-zinc-400 mb-4">Technical Arsenal</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#F4F4F5] tracking-tight mb-6">Skills & Tools</h2>
-          <p className="text-[#A1A1AA] text-base max-w-2xl">
-            Technologies and tools I use to build reliable systems and solve complex problems.
-          </p>
-        </motion.div>
+
+        <h2 className="text-4xl text-white mb-10">Skills</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category, categoryIndex) => (
+          {safeCategories.map((category, categoryIndex) => (
             <motion.div
               key={category}
-              data-testid={`skill-category-${category.toLowerCase().replace(/\s+/g, '-')}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg p-8"
+              className="bg-white/5 border border-white/10 rounded-lg p-6"
             >
-              <h3 className="text-lg font-semibold text-[#F4F4F5] mb-6">{category}</h3>
-              <div className="space-y-4">
-                {skillsByCategory[category]?.map((skill, skillIndex) => (
-                  <div key={skill.id} data-testid={`skill-${skill.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-[#A1A1AA]">{skill.name}</span>
-                      <span className="text-xs text-[#71717A]">{skill.level}%</span>
-                    </div>
-                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                        viewport={{ once: true }}
-                        className="h-full bg-gradient-to-r from-[#4D9FFF] to-[#7CB9FF] rounded-full"
-                      />
-                    </div>
+              <h3 className="text-white mb-4">{category}</h3>
+
+              {(skillsByCategory[category] || []).map((skill, index) => (
+                <div key={skill.id || index} className="mb-3">
+                  <div className="flex justify-between text-sm text-gray-400">
+                    <span>{skill.name}</span>
+                    <span>{skill.level}%</span>
                   </div>
-                ))}
-              </div>
+
+                  <div className="h-2 bg-gray-800 rounded">
+                    <div
+                      className="h-full bg-blue-500 rounded"
+                      style={{ width: `${skill.level || 0}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
