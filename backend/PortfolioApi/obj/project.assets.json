@@ -2733,19 +2733,19 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "C:\\Users\\santo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/app/backend/PortfolioApi/PortfolioApi.csproj",
+      "projectUniqueName": "C:\\Users\\santo\\OneDrive\\Desktop\\portfolio_website\\santosh_portfolio_website\\backend\\PortfolioApi\\PortfolioApi.csproj",
       "projectName": "PortfolioApi",
-      "projectPath": "/app/backend/PortfolioApi/PortfolioApi.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/app/backend/PortfolioApi/obj/",
+      "projectPath": "C:\\Users\\santo\\OneDrive\\Desktop\\portfolio_website\\santosh_portfolio_website\\backend\\PortfolioApi\\PortfolioApi.csproj",
+      "packagesPath": "C:\\Users\\santo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\santo\\OneDrive\\Desktop\\portfolio_website\\santosh_portfolio_website\\backend\\PortfolioApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\santo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -2768,7 +2768,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -2804,6 +2805,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.23, 8.0.23]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.23, 8.0.23]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.23, 8.0.23]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.23, 8.0.23]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -2812,7 +2831,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.419/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
