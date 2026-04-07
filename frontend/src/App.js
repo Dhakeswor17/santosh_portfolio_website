@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -33,6 +34,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/barbershop-finder" element={<BarbershopFinder />} />
       </Routes>
+      <SpeedInsights />
     </div>
   );
 }
