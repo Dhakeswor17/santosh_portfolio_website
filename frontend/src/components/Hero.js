@@ -11,10 +11,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" data-testid="hero-section" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #0d1117 50%, #0A0A0A 100%)' }}>
+    <section id="hero" data-testid="hero-section" className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
       <Scene3D />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60 z-[1]" />
+      <div className="hero-overlay absolute inset-0 z-[1]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
         <motion.div
@@ -22,30 +22,31 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="uppercase tracking-[0.2em] text-xs font-semibold text-zinc-400 mb-6">
+          <p className="uppercase tracking-[0.2em] text-xs font-semibold theme-text-muted mb-6">
             Network Engineer · Software Developer · Full Stack Developer · IT Student · Builder
           </p>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold theme-text tracking-tight mb-6">
             Santosh Nyaupane
           </h1>
           
-          <p className="text-base sm:text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-12">
+          <p className="text-base sm:text-lg theme-text-secondary max-w-2xl mx-auto leading-relaxed mb-12">
             Building reliable infrastructure at scale. From data centers at Google & Microsoft to full-stack applications — I bridge hardware, networks, and code.
           </p>
           
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => scrollToSection('projects')}
               data-testid="hero-cta-projects"
-              className="px-8 py-3.5 bg-white text-black text-sm font-medium rounded-md hover:bg-zinc-200 hover:scale-105 transition-all"
+              className="w-full sm:w-auto px-8 py-3.5 nav-cta-btn text-sm font-medium rounded-md hover:scale-105 transition-all"
             >
               View my work
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               data-testid="hero-cta-contact"
-              className="px-8 py-3.5 border border-white/20 text-white text-sm font-medium rounded-md hover:bg-white/5 hover:scale-105 transition-all"
+              className="w-full sm:w-auto px-8 py-3.5 border theme-text text-sm font-medium rounded-md hover:bg-white/5 hover:scale-105 transition-all"
+              style={{ borderColor: 'var(--border-color)' }}
             >
               Contact me
             </button>
@@ -54,8 +55,8 @@ export default function Hero() {
       </div>
       
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-white/40 rounded-full" />
+        <div className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2" style={{ borderColor: 'var(--border-color)' }}>
+          <div className="w-1 h-2 rounded-full" style={{ backgroundColor: 'var(--text-muted)' }} />
         </div>
       </div>
     </section>
