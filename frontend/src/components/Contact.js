@@ -25,22 +25,12 @@ export default function Contact() {
   ];
 
   const socialLinks = [
-    {
-      icon: FaLinkedin,
-      label: 'LinkedIn',
-      url: 'https://linkedin.com',
-      testId: 'social-linkedin'
-    },
-    {
-      icon: FaGithub,
-      label: 'GitHub',
-      url: 'https://github.com',
-      testId: 'social-github'
-    }
+    { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com', testId: 'social-linkedin' },
+    { icon: FaGithub, label: 'GitHub', url: 'https://github.com/Dhakeswor17', testId: 'social-github' }
   ];
 
   return (
-    <section id="contact" data-testid="contact-section" className="py-32 px-6 lg:px-12" style={{ backgroundColor: '#121215' }}>
+    <section id="contact" data-testid="contact-section" className="section-bg-alt py-32 px-6 lg:px-12">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,23 +39,23 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="uppercase tracking-[0.2em] text-xs font-semibold text-zinc-400 mb-4">Get in Touch</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#F4F4F5] tracking-tight mb-6">Let’s Connect</h2>
-          <p className="text-[#A1A1AA] text-base max-w-2xl mx-auto">
+          <p className="uppercase tracking-[0.2em] text-xs font-semibold theme-text-muted mb-4">Get in Touch</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold theme-text tracking-tight mb-6">Let's Connect</h2>
+          <p className="theme-text-secondary text-base max-w-2xl mx-auto">
             Open to opportunities in infrastructure engineering, full-stack development, and DevOps. Feel free to reach out!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-12">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             const content = (
-              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg p-8 hover:border-white/20 transition-all text-center">
-                <div className="w-14 h-14 bg-[#4D9FFF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="text-[#4D9FFF] text-xl" />
+              <div className="theme-card backdrop-blur-xl rounded-lg p-6 sm:p-8 text-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'var(--accent)', opacity: 0.1 }}>
+                  <Icon className="theme-accent text-lg sm:text-xl" />
                 </div>
-                <p className="text-xs text-[#71717A] uppercase tracking-wider mb-2">{info.label}</p>
-                <p className="text-[#F4F4F5] text-sm font-medium">{info.value}</p>
+                <p className="text-xs theme-text-muted uppercase tracking-wider mb-2">{info.label}</p>
+                <p className="theme-text text-sm font-medium break-all sm:break-normal">{info.value}</p>
               </div>
             );
 
@@ -78,13 +68,7 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                {info.link ? (
-                  <a href={info.link} className="block">
-                    {content}
-                  </a>
-                ) : (
-                  content
-                )}
+                {info.link ? <a href={info.link} className="block">{content}</a> : content}
               </motion.div>
             );
           })}
@@ -95,10 +79,10 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="bg-[#18181B] border border-white/5 rounded-lg p-12 text-center"
+          className="theme-card-solid rounded-lg p-8 sm:p-12 text-center"
         >
-          <h3 className="text-2xl font-semibold text-[#F4F4F5] mb-4">Connect on Social Media</h3>
-          <p className="text-[#A1A1AA] mb-8">Follow my journey and stay updated with my latest projects</p>
+          <h3 className="text-xl sm:text-2xl font-semibold theme-text mb-4">Connect on Social Media</h3>
+          <p className="theme-text-secondary mb-8">Follow my journey and stay updated with my latest projects</p>
           
           <div className="flex justify-center gap-6">
             {socialLinks.map((social, index) => {
@@ -110,9 +94,9 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid={social.testId}
-                  className="w-14 h-14 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-[#4D9FFF] hover:scale-110 transition-all"
+                  className="w-12 h-12 sm:w-14 sm:h-14 theme-card rounded-full flex items-center justify-center hover:scale-110 transition-all"
                 >
-                  <Icon className="text-[#F4F4F5] text-xl" />
+                  <Icon className="theme-text text-lg sm:text-xl" />
                 </a>
               );
             })}
