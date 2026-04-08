@@ -7,3 +7,167 @@
     @apply antialiased;
   }
 }
+
+/* ============================================
+   DARK MODE (Default)
+   ============================================ */
+:root {
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #18181B;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --text-primary: #F4F4F5;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --accent: #4D9FFF;
+  --accent-hover: #7CB9FF;
+  --nav-scrolled-bg: rgba(0, 0, 0, 0.6);
+  --cta-bg: #FFFFFF;
+  --cta-text: #000000;
+  --cta-hover: #E4E4E7;
+  --mobile-menu-bg: rgba(10, 10, 10, 0.95);
+  --skill-bar-bg: rgba(255, 255, 255, 0.1);
+  --hero-gradient: linear-gradient(135deg, #0A0A0A 0%, #0d1117 50%, #0A0A0A 100%);
+  --hero-overlay: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  --tag-bg: rgba(255, 255, 255, 0.05);
+  --tag-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+html.light-mode {
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F4F4F5;
+  --bg-card: rgba(0, 0, 0, 0.03);
+  --bg-card-hover: rgba(0, 0, 0, 0.06);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  --text-primary: #18181B;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --nav-scrolled-bg: rgba(250, 250, 250, 0.85);
+  --cta-bg: #18181B;
+  --cta-text: #FFFFFF;
+  --cta-hover: #27272A;
+  --mobile-menu-bg: rgba(250, 250, 250, 0.98);
+  --skill-bar-bg: rgba(0, 0, 0, 0.08);
+  --hero-gradient: linear-gradient(135deg, #E0E7FF 0%, #F0F4FF 50%, #E8ECFF 100%);
+  --hero-overlay: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), rgba(255,255,255,0.5));
+  --tag-bg: rgba(0, 0, 0, 0.04);
+  --tag-border: rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   GLOBAL THEME STYLES
+   ============================================ */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigation */
+.nav-scrolled {
+  background-color: var(--nav-scrolled-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+.nav-text-primary { color: var(--text-primary); }
+.nav-text-secondary { color: var(--text-secondary); }
+.nav-cta-btn {
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+}
+.nav-cta-btn:hover {
+  background-color: var(--cta-hover);
+}
+.mobile-menu {
+  background-color: var(--mobile-menu-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Sections */
+.section-bg {
+  background-color: var(--bg-primary) !important;
+}
+.section-bg-alt {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Cards */
+.theme-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.theme-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-hover);
+}
+.theme-card-solid {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.theme-card-solid:hover {
+  border-color: var(--border-hover);
+}
+
+/* Text */
+.theme-text { color: var(--text-primary); }
+.theme-text-secondary { color: var(--text-secondary); }
+.theme-text-muted { color: var(--text-muted); }
+.theme-accent { color: var(--accent); }
+
+/* Tags */
+.theme-tag {
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text-secondary);
+}
+
+/* Skill bars */
+.theme-skill-bar-bg {
+  background-color: var(--skill-bar-bg);
+}
+.theme-skill-bar-fill {
+  background-color: var(--accent);
+}
+
+/* Hero specific */
+.hero-section {
+  background: var(--hero-gradient);
+}
+.hero-overlay {
+  background: var(--hero-overlay);
+}
+
+/* Download buttons */
+.theme-download-btn {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+.theme-download-btn:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--accent);
+}
+
+/* Light mode adjustments for 3D scene */
+html.light-mode .hero-section canvas {
+  opacity: 0.3;
+}
+
+/* Footer */
+.theme-footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
