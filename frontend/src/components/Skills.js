@@ -97,4 +97,3 @@ export default function Skills() {
     </section>
   );
 }
-git 
