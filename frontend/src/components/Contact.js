@@ -10,7 +10,7 @@ export default function Contact() {
       value: 'santoshnyaupane25@gmail.com',
       link: 'mailto:santoshnyaupane25@gmail.com',
       iconColor: '#EA4335',
-      iconBg: 'rgba(234, 67, 53, 0.12)'
+      iconBg: 'rgba(234, 67, 53, 0.5)'
     },
     {
       icon: FaPhone,
@@ -26,7 +26,7 @@ export default function Contact() {
       value: '+358 44 968 4333',
       link: 'https://wa.me/358449684333',
       iconColor: '#25D366',
-      iconBg: 'rgba(37, 211, 102, 0.12)'
+      iconBg: 'rgba(37, 211, 102, 0.5)'
     },
     {
       icon: FaMapMarkerAlt,
