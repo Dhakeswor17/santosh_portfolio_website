@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 
 export default function Contact() {
   const contactInfo = [
@@ -8,25 +8,40 @@ export default function Contact() {
       icon: FaEnvelope,
       label: 'Email',
       value: 'santoshnyaupane25@gmail.com',
-      link: 'mailto:santoshnyaupane25@gmail.com'
+      link: 'mailto:santoshnyaupane25@gmail.com',
+      iconColor: '#EA4335',
+      iconBg: 'rgba(234, 67, 53, 0.12)'
     },
     {
       icon: FaPhone,
       label: 'Phone',
       value: '+358 44 968 4333',
-      link: 'tel:+358449684333'
+      link: 'tel:+358449684333',
+      iconColor: '#4D9FFF',
+      iconBg: 'rgba(77, 159, 255, 0.12)'
+    },
+    {
+      icon: FaWhatsapp,
+      label: 'WhatsApp',
+      value: '+358 44 968 4333',
+      link: 'https://wa.me/358449684333',
+      iconColor: '#25D366',
+      iconBg: 'rgba(37, 211, 102, 0.12)'
     },
     {
       icon: FaMapMarkerAlt,
       label: 'Location',
       value: 'Espoo, Finland',
-      link: null
+      link: null,
+      iconColor: '#FF6B6B',
+      iconBg: 'rgba(255, 107, 107, 0.12)'
     }
   ];
 
   const socialLinks = [
-    { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com', testId: 'social-linkedin' },
-    { icon: FaGithub, label: 'GitHub', url: 'https://github.com/Dhakeswor17', testId: 'social-github' }
+    { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com', testId: 'social-linkedin', color: '#0A66C2' },
+    { icon: FaGithub, label: 'GitHub', url: 'https://github.com/Dhakeswor17', testId: 'social-github', color: 'var(--text-primary)' },
+    { icon: FaWhatsapp, label: 'WhatsApp', url: 'https://wa.me/358449684333', testId: 'social-whatsapp', color: '#25D366' }
   ];
 
   return (
@@ -46,13 +61,16 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             const content = (
-              <div className="theme-card backdrop-blur-xl rounded-lg p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'var(--accent)', opacity: 0.1 }}>
-                  <Icon className="theme-accent text-lg sm:text-xl" />
+              <div className="theme-card backdrop-blur-xl rounded-lg p-6 sm:p-8 text-center group hover:scale-[1.03] transition-all">
+                <div
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: info.iconBg }}
+                >
+                  <Icon style={{ color: info.iconColor }} className="text-2xl sm:text-3xl" />
                 </div>
                 <p className="text-xs theme-text-muted uppercase tracking-wider mb-2">{info.label}</p>
                 <p className="theme-text text-sm font-medium break-all sm:break-normal">{info.value}</p>
@@ -68,7 +86,11 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                {info.link ? <a href={info.link} className="block">{content}</a> : content}
+                {info.link ? (
+                  <a href={info.link} target={info.link.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className="block">
+                    {content}
+                  </a>
+                ) : content}
               </motion.div>
             );
           })}
@@ -94,9 +116,9 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid={social.testId}
-                  className="w-12 h-12 sm:w-14 sm:h-14 theme-card rounded-full flex items-center justify-center hover:scale-110 transition-all"
+                  className="w-14 h-14 sm:w-16 sm:h-16 theme-card rounded-2xl flex items-center justify-center hover:scale-110 transition-all"
                 >
-                  <Icon className="theme-text text-lg sm:text-xl" />
+                  <Icon style={{ color: social.color }} className="text-2xl sm:text-3xl" />
                 </a>
               );
             })}
